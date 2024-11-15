@@ -12,6 +12,10 @@ const Home = () => {
 		navigate('/ticket')
 	}
 
+	const navigateToDelivery = () => {
+		navigate('/delivery')
+	}
+
 	return (
 		<Center h='100vh'>
 			<Stack>
@@ -19,6 +23,7 @@ const Home = () => {
 				<Button onClick={navigateToPasswordChange}>
 					パスワード変更
 				</Button>
+				<Button onClick={navigateToDelivery}>Delivery</Button>
 			</Stack>
 		</Center>
 	)

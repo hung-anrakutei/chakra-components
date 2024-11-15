@@ -162,7 +162,10 @@ const Login = () => {
 								width='60%'
 								mx='auto'
 								placeholder='PINコード'
-								onChange={(e) => setPinCode(e.target.value)}
+								onChange={(e) => {
+									setPinCode(e.target.value)
+									setErrorMessage('')
+								}}
 								value={pinCode}
 								onKeyDown={(e) => {
 									if (e.key === 'Enter') handleSubmitPINCode()

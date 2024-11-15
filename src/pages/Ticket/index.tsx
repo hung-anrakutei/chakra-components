@@ -8,6 +8,7 @@ import {
 	Stack,
 	Text,
 	Center,
+	Skeleton,
 } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { FaAngleLeft } from 'react-icons/fa'
@@ -20,18 +21,23 @@ const Ticket = () => {
 	const [category, setCategory] = useState<StatusType>('all')
 	const [dataAll, setDataAll] = useState<any[]>([]) // Specify a type for the data
 	const [dataPerson, setDataPerson] = useState<any[]>([])
+	const [isLoading, setIsLoading] = useState(true)
 
 	const handleBackToHome = () => {
 		navigate('/home')
 	}
 
 	useEffect(() => {
-		setDataPerson(getData('Yamada', category))
-		setDataAll(getData('', category))
+		setTimeout(() => {
+			setDataPerson(getData('Yamada', category))
+			setDataAll(getData('', category))
+			setIsLoading(false)
+		}, 500)
 	}, [category])
 
 	const handleStatusChange = (newCategory: StatusType) => {
 		setCategory(newCategory)
+		setIsLoading(true)
 	}
 
 	return (
@@ -98,28 +104,38 @@ const Ticket = () => {
 					<Text>担当案件</Text>
 				</Flex>
 				<Box display='flex' flexDirection='column' gap={2}>
-					{dataPerson.map((item) => (
-						<Stack
-							borderWidth={1}
-							borderColor='black'
-							rounded='md'
-							bg={
-								item.category === 'new'
-									? 'orange.500'
-									: item.category === 'progress'
-									? 'gray.500'
-									: 'bg'
-							}
-							key={item.case_id}
-						>
-							<Center p={1} borderBottom='1px solid'>
-								<Text fontSize='sm'>{item.case_id}</Text>
-							</Center>
-							<Text p={1} fontSize='sm'>
-								{item.description}
-							</Text>
-						</Stack>
-					))}
+					{isLoading
+						? Array.from({ length: 3 }).map((_, index) => (
+								<Skeleton
+									key={index}
+									height='50px'
+									borderRadius='md'
+								/>
+						  ))
+						: dataPerson.map((item) => (
+								<Stack
+									borderWidth={1}
+									borderColor='black'
+									rounded='md'
+									bg={
+										item.category === 'new'
+											? 'orange.500'
+											: item.category === 'progress'
+											? 'gray.500'
+											: 'bg'
+									}
+									key={item.case_id}
+								>
+									<Center p={1} borderBottom='1px solid'>
+										<Text fontSize='sm'>
+											{item.case_id}
+										</Text>
+									</Center>
+									<Text p={1} fontSize='sm'>
+										{item.description}
+									</Text>
+								</Stack>
+						  ))}
 				</Box>
 			</Stack>
 			<Stack w={'100%'} pb={2}>
@@ -132,28 +148,38 @@ const Ticket = () => {
 					<Text>全体案件</Text>
 				</Flex>
 				<Box display='flex' flexDirection='column' gap={2}>
-					{dataAll.map((item) => (
-						<Stack
-							borderWidth={1}
-							borderColor='black'
-							rounded='md'
-							bg={
-								item.category === 'new'
-									? 'orange.500'
-									: item.category === 'progress'
-									? 'gray.500'
-									: 'bg'
-							}
-							key={item.case_id}
-						>
-							<Center p={1} borderBottom='1px solid'>
-								<Text fontSize='sm'>{item.case_id}</Text>
-							</Center>
-							<Text p={1} fontSize='sm'>
-								{item.description}
-							</Text>
-						</Stack>
-					))}
+					{isLoading
+						? Array.from({ length: 3 }).map((_, index) => (
+								<Skeleton
+									key={index}
+									height='50px'
+									borderRadius='md'
+								/>
+						  ))
+						: dataAll.map((item) => (
+								<Stack
+									borderWidth={1}
+									borderColor='black'
+									rounded='md'
+									bg={
+										item.category === 'new'
+											? 'orange.500'
+											: item.category === 'progress'
+											? 'gray.500'
+											: 'bg'
+									}
+									key={item.case_id}
+								>
+									<Center p={1} borderBottom='1px solid'>
+										<Text fontSize='sm'>
+											{item.case_id}
+										</Text>
+									</Center>
+									<Text p={1} fontSize='sm'>
+										{item.description}
+									</Text>
+								</Stack>
+						  ))}
 				</Box>
 			</Stack>
 		</Box>

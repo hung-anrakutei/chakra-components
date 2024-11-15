@@ -47,7 +47,6 @@ const Login = () => {
 		) {
 			setOpenDialogError(true)
 		} else {
-			console.log(data)
 			setOpenDialogPinCode(true)
 		}
 	})

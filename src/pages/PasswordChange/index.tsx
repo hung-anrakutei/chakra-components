@@ -23,12 +23,11 @@ const PasswordChange = () => {
 	const navigate = useNavigate()
 
 	const handleBackToHome = () => {
-		navigate('/home')
+		navigate('/')
 	}
 
-	const onSubmit = handleSubmit((data) => {
-		console.log(data)
-		navigate('/home')
+	const onSubmit = handleSubmit(() => {
+		navigate('/')
 	})
 
 	return (

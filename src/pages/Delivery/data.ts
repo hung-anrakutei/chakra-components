@@ -1,4 +1,4 @@
-export const data = [
+const data = [
 	{
 		id: 1289,
 		storeName: 'Goodsense Extra Strength Cold and Hot medicated',
@@ -131,11 +131,26 @@ export const data = [
 	},
 ]
 
-export const sortData = (startDate: Date | null, endDate: Date | null) => {
-	if (!startDate || !endDate) return data
+export const getData = (
+	startDate: Date | null,
+	endDate: Date | null,
+	searchText: string
+) => {
+	let result = data
 
-	return data.filter((item) => {
-		const date = new Date(item.date)
-		return date >= startDate && date <= endDate
-	})
+	if (startDate) {
+		result = result.filter((item) => new Date(item.date) >= startDate)
+	}
+
+	if (endDate) {
+		result = result.filter((item) => new Date(item.date) <= endDate)
+	}
+
+	if (searchText) {
+		result = result.filter((item) =>
+			item.storeName.toLowerCase().includes(searchText.toLowerCase())
+		)
+	}
+
+	return result
 }

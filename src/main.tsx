@@ -8,16 +8,17 @@ import Home from '@/pages/Home'
 import PasswordChange from '@/pages/PasswordChange'
 import Ticket from '@/pages/Ticket'
 import Delivery from '@/pages/Delivery'
+import './index.css'
 
 const router = createBrowserRouter(
 	[
 		{
 			path: '/',
-			element: <Login />,
+			element: <Home />,
 		},
 		{
-			path: '/home',
-			element: <Home />,
+			path: '/login',
+			element: <Login />,
 		},
 		{
 			path: '/password-change',

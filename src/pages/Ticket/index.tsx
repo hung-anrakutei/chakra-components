@@ -24,15 +24,13 @@ const Ticket = () => {
 	const [isLoading, setIsLoading] = useState(true)
 
 	const handleBackToHome = () => {
-		navigate('/home')
+		navigate('/')
 	}
 
 	useEffect(() => {
-		setTimeout(() => {
-			setDataPerson(getData('Yamada', category))
-			setDataAll(getData('', category))
-			setIsLoading(false)
-		}, 500)
+		setDataPerson(getData('Yamada', category))
+		setDataAll(getData('', category))
+		setIsLoading(false)
 	}, [category])
 
 	const handleStatusChange = (newCategory: StatusType) => {

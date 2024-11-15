@@ -111,16 +111,6 @@ export const buttonRecipe = defineRecipe({
 			},
 		},
 		variant: {
-			primary: {
-				bg: '#3d6df2',
-				color: 'white',
-				_hover: {
-					bg: '#2c5cb7',
-				},
-				_expanded: {
-					bg: '#2c5cb7',
-				},
-			},
 			solid: {
 				bg: 'colorPalette.solid',
 				color: 'colorPalette.contrast',

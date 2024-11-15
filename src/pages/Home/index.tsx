@@ -23,6 +23,13 @@ const Home = () => {
 				<Button onClick={navigateToPasswordChange}>
 					パスワード変更
 				</Button>
+				<Button
+					onClick={() => {
+						navigate('/login')
+					}}
+				>
+					Login
+				</Button>
 				<Button onClick={navigateToDelivery}>Delivery</Button>
 			</Stack>
 		</Center>

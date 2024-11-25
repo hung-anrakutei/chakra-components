@@ -8,7 +8,11 @@ import Home from '@/pages/Home'
 import PasswordChange from '@/pages/PasswordChange'
 import Ticket from '@/pages/Ticket'
 import Delivery from '@/pages/Delivery'
+import Chart from '@/pages/Chart'
 import './index.css'
+import Settings from './pages/Settings'
+import Accounts from './pages/Accounts'
+import Pricing from './pages/Pricing'
 
 const router = createBrowserRouter(
 	[
@@ -32,6 +36,22 @@ const router = createBrowserRouter(
 			path: '/delivery',
 			element: <Delivery />,
 		},
+		{
+			path: '/chart',
+			element: <Chart />,
+		},
+		{
+			path: '/settings',
+			element: <Settings />,
+		},
+		{
+			path: '/accounts',
+			element: <Accounts />
+		},
+		{
+			path: '/pricing',
+			element: <Pricing />
+		}
 	],
 	{
 		future: {

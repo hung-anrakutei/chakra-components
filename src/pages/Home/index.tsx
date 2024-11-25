@@ -16,6 +16,14 @@ const Home = () => {
 		navigate('/delivery')
 	}
 
+	const navigateToChart = () => {
+		navigate('/chart')
+	}
+
+	const navigateToSettings = () => {
+		navigate('/settings')
+	}	
+	
 	return (
 		<Center h='100vh'>
 			<Stack>
@@ -31,6 +39,9 @@ const Home = () => {
 					Login
 				</Button>
 				<Button onClick={navigateToDelivery}>Delivery</Button>
+				<Button onClick={navigateToChart}>Chart</Button>
+				<Button onClick={navigateToSettings}>Settings</Button>
+
 			</Stack>
 		</Center>
 	)

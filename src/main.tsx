@@ -14,6 +14,7 @@ import Settings from './pages/Settings'
 import Accounts from './pages/Accounts'
 import Pricing from './pages/Pricing'
 import Page404 from './pages/Page404'
+import Help from './pages/Help'
 
 const router = createBrowserRouter(
 	[
@@ -52,6 +53,10 @@ const router = createBrowserRouter(
 		{
 			path: '/pricing',
 			element: <Pricing />
+		},
+		{
+			path: '/help',
+			element: <Help />
 		},
 		{
 			path: '*',
